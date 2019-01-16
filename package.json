@@ -1,9 +1,9 @@
 {
   "name": "graphql-server-template",
   "version": "1.0.0",
-  "description": "ts-package-tempate Description",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "description": "graphql-server-template Description",
+  "main": "./lib/server.js",
+  "types": "./lib/server.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json",
@@ -13,7 +13,8 @@
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "start": "node ./lib/server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/schardtbc/graphql-server-template#readme",
   "devDependencies": {
+    "@types/graphql": "14.0.5",
     "@types/jest": "23.3.11",
     "jest": "23.6.0",
     "nyc": "13.1.0",
@@ -39,5 +41,11 @@
   "files": [
     "lib/**/*"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "@types/reflect-metadata": "0.1.0",
+    "apollo-server": "2.3.1",
+    "graphql": "14.1.0",
+    "reflect-metadata": "0.1.13",
+    "type-graphql": "0.16.0"
+  }
 }

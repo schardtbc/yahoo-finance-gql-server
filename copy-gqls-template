@@ -1,10 +1,13 @@
 #!/bin/bash
+new_pkg=$1
+echo $new_pkg
+body=$(printf '{ "name": "%s"' "$new_pkg")
 
 # one positional parameter which is new package name
-echo copying grapql-server-template to $1
+echo copying graphql-server-template to "$body"
 
 #create the new repo
-curl -u 'username:password' https://api.github.com/user/repos -d '{"name":"$1", "private": false}'
+curl -u 'username:password' https://api.github.com/user/repos -d "$body"
 
 #clone the template repo to local directory
 git clone --bare https://github.com/schardtbc/graphql-server-template.git 
@@ -12,28 +15,32 @@ git clone --bare https://github.com/schardtbc/graphql-server-template.git
 cd graphql-server-template.git
 
 # mirror the template repo to the newly created repo
-git push --mirror https://github/schardtbc/$1.git
-
-# delete the unneeded local copy of the template repo
-rm -r graphql-server-template
+git push --mirror https://github.com/schardtbc/$1.git
 
 cd ..
+# delete the unneeded local copy of the template repo
+rm -rf graphql-server-template.git
 
-clone the new package repo to local storage
-git clone https://github/schardtbc/$1.git
+
+#clone the new package repo to local storage
+git clone https://github.com/schardtbc/$1.git
 cd $1
-git remote -add origin https://github/schardtbc/$1.git
+#git remote add origin https://github.com/schardtbc/$1.git
 
 # recreate the README.md file
 rm README.md
 echo $1 > README.md
 
 # change name of package in the package.json file
-sed -i 's/graphql-server-template/$1/g' package.json
+sed -i "old" s/graphql-server-template/$1/g package.json
+
+rm package.jsonold
 
 # use npm install, to pull down all dependencies for your new package using the templates package.json
 npm install
 
+git add -A 
+git commit -m "finishing install of package copied from template graphql-server-template"
 git push origin master
 
 exit

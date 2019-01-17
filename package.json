@@ -1,7 +1,7 @@
 {
-  "name": "graphql-server-template",
+  "name": "yahoo-finance-gql-server",
   "version": "1.0.0",
-  "description": "graphql-server-template Description",
+  "description": "yahoo-finance-gql-server Description",
   "main": "./lib/server.js",
   "types": "./lib/server.d.ts",
   "scripts": {
@@ -18,15 +18,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/schardtbc/graphql-server-template.git"
+    "url": "git+https://github.com/schardtbc/yahoo-finance-gql-server.git"
   },
   "keywords": [],
   "author": "Bruce C. Schardt",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/schardtbc/graphql-server-template/issues"
+    "url": "https://github.com/schardtbc/yahoo-finance-gql-server/issues"
   },
-  "homepage": "https://github.com/schardtbc/graphql-server-template#readme",
+  "homepage": "https://github.com/schardtbc/yahoo-finance-gql-server#readme",
   "devDependencies": {
     "@types/graphql": "14.0.5",
     "@types/jest": "23.3.11",

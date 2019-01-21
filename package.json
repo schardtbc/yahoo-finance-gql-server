@@ -46,6 +46,7 @@
     "apollo-server": "2.3.1",
     "graphql": "14.1.0",
     "reflect-metadata": "0.1.13",
-    "type-graphql": "0.16.0"
+    "type-graphql": "0.16.0",
+    "yahoo_finance_api_wrapper": "git+https://git@github.com/schardtbc/yahoo_finance_api_wrapper.git"
   }
 }
